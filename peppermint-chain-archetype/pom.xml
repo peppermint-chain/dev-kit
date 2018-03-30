@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.peppermintchain.archetypes</groupId>
+	<artifactId>peppermint-chain-quick-start</artifactId>
+	<version>1.1</version>
+	<name>Quick-start Archetype for Peppermint-Chain projects</name>
+
+	<description>This archetype allows a quick-start setup of a peppermint-chain app.</description>
+	<url>https://github.com/peppermint-chain/dev-kit</url>
+
+	<licenses>
+		<license>
+			<name>Peppermint-Chain License Agreement</name>
+			<url>http://peppermintchain.com/License.pdf</url>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Pramod Chandersekhar</name>
+			<email>pramod@peppermintchain.com</email>
+			<organization>Peppermint-Chain Inc</organization>
+			<organizationUrl>http://www.peppermintchain.com</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/peppermint-chain/dev-kit.git</connection>
+		<developerConnection>scm:git:ssh://github.com:peppermint-chain/dev-kit.git</developerConnection>
+		<url>http://github.com/peppermint-chain/dev-kit/tree/master</url>
+	</scm>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.5</version>
+				<configuration>
+					<executable>gpg2</executable>
+					<skip>${skipGPG}</skip>
+				</configuration>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.6.7</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+
+
+</project>

@@ -1,0 +1,4 @@
+{
+	"applicationId": "${package}",
+	"applicationName": "${package} App"
+}

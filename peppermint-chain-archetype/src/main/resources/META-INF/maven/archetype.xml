@@ -1,0 +1,12 @@
+<archetype>
+  <id>quick-start</id>
+  <sources>
+    <source>src/main/java/contracts/AppContracts.java</source>
+    <source>src/main/java/services/AppServices.java</source>
+  </sources>
+  <resources>
+    <resource>src/main/resources/database-schema.sql</resource>
+    <resource>src/main/resources/peppermint.json</resource>
+    <resource>src/main/www/index.html</resource>
+  </resources>
+</archetype>
